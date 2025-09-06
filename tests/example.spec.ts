@@ -48,8 +48,8 @@ console.log("step 3: lets get started");
     await page.getByText("Get started").click();
     await expect(page).toHaveURL('https://playwright.dev/docs/intro');
 console.log(`step 4: click ${scripting} scripting option`);
-    await page.locator('//*[@id="__docusaurus"]/nav/div[1]/div[1]/div/a').hover();
-    await page.locator('.dropdown_link').getByText(scripting).click();
+  await page.getByRole('button', { name: 'Node.js' }).click();
+  await page.getByRole('link', { name: scripting }).click();
 console.log("Scripting Selected successfully"+await page.screenshot({path: 'screenshots/test_'+TCno.toString()+'_'+scripting+'.png'}));
 
 page.close();
