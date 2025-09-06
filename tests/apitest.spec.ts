@@ -4,7 +4,7 @@ import ApiCore, {Method} from '../utils/corelib/apicore'
 const apicore = new ApiCore();
 
 const headers = new Map<string,string>();
-headers.set("Authorization", "Bearer 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");
+headers.set("Authorization", "Bearer <token>");
 headers.set("X-GitHub-Api-Version","2022-11-28"); 
 const payload=apicore.loadJsonPayload("resources/data/samplepayload.json");
 
