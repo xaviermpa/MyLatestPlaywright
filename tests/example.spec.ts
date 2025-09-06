@@ -1,5 +1,14 @@
 import test, { chromium, expect } from "@playwright/test";
 
+
+test('has title',{tag: '@smoke'}, async ({ page }) => {
+  await page.goto('https://playwright.dev/');
+
+  // Expect a title "to contain" a substring.
+  await expect(page).toHaveTitle(/Playwright/);
+});
+
+
 let TCno: number = 0;
 
 test.describe("My UI test collection",async() => {
@@ -7,8 +16,8 @@ test.describe("My UI test collection",async() => {
 test(`Test_${++TCno}lauch playwright page`,async()=>{
 //to launch webpage
 const browser = await chromium.launch({
-    headless: false,
-    slowMo : 1000,
+    // headless: false,
+    // slowMo : 1000,
 })    
 
 const uiContext = await browser.newContext();
@@ -28,13 +37,13 @@ uiContext.close();
 });
 
 //test 
-const scriptings =[{scripting: "NodeJS"},{scripting: "Java"},{scripting: "Python"},{scripting: "C#"}];
+const scriptings =[{scripting: "Node.js"},{scripting: "Java"},{scripting: "Python"},{scripting: "C#"}];
 scriptings.forEach(({scripting})=>{
 test(`Test_${++TCno}Check all scripting options`,async()=>{
 //to verify each scripting options
 const browser = await chromium.launch({
-    headless: false,
-    slowMo : 2000,
+    // headless: false,
+    // slowMo : 2000,
 })    
 
 const uiContext = await browser.newContext();
