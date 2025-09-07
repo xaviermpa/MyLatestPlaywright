@@ -3,26 +3,12 @@
     "target": "ES2020",
     "module": "ESNext",
     "moduleResolution": "node",
-    "lib": ["ES2020", "DOM"],
-    "types": ["node", "@cucumber/cucumber"],
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
     "resolveJsonModule": true,
-    "outDir": "dist",
-    "rootDir": ".",
     "allowSyntheticDefaultImports": true,
-    "allowImportingTsExtensions": false,
-    "moduleDetection": "force"
+    "types": ["node", "@cucumber/cucumber"],
+    "outDir": "dist",
+    "rootDir": "."
   },
-  "include": [
-    "tests/**/*.ts",
-    "utils/**/*.ts",
-    "playwright.config.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+  "include": ["tests/**/*.ts", "utils/**/*.ts"]
 }
