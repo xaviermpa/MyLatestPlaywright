@@ -16,8 +16,8 @@ test.describe("My UI test collection",async() => {
 test(`Test_${++TCno}lauch playwright page`,async()=>{
 //to launch webpage
 const browser = await chromium.launch({
-    // headless: false,
-    // slowMo : 1000,
+    headless: false,
+    slowMo : 1000,
 })    
 
 const uiContext = await browser.newContext();
@@ -29,7 +29,8 @@ console.log("step 2: Open browser and laucn playwright site");
 console.log("step 3: lets get started");
     await page.getByText("Get started").click();
     await expect(page).toHaveURL('https://playwright.dev/docs/intro');
-console.log("Page opened successfully"+await page.screenshot({path: 'screenshots/test1.png'}));
+console.log("Page opened successfully");
+await page.screenshot({path: 'screenshots/test1.png'});
 
 page.close();
 uiContext.close();
@@ -42,8 +43,8 @@ scriptings.forEach(({scripting})=>{
 test(`Test_${++TCno}Check all scripting options`,async()=>{
 //to verify each scripting options
 const browser = await chromium.launch({
-    // headless: false,
-    // slowMo : 2000,
+    headless: false,
+    slowMo : 2000,
 })    
 
 const uiContext = await browser.newContext();
@@ -59,7 +60,8 @@ console.log("step 3: lets get started");
 console.log(`step 4: click ${scripting} scripting option`);
   await page.getByRole('button', { name: 'Node.js' }).click();
   await page.getByRole('link', { name: scripting }).click();
-console.log("Scripting Selected successfully"+await page.screenshot({path: 'screenshots/test_'+TCno.toString()+'_'+scripting+'.png'}));
+console.log("Scripting Selected successfully")
+await page.screenshot({path: 'screenshots/test_'+TCno.toString()+'_'+scripting+'.png'});
 
 page.close();
 uiContext.close();

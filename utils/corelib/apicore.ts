@@ -65,14 +65,8 @@ async sendAPIrequest(){
 
     try{
 
-        const hr = Object.entries(this.headers);
-        const options: object = {
-            baseURL: this.baseUrl+this.resourcePath,
-            headers: hr,
-            data: this.requestBody,
-            ignoreHTTPErrors: true,
-        }
-
+        const hr = Object.fromEntries(this.headers);
+        
         const requestUrl = this.resourcePath
         ? this.baseUrl.concat(this.resourcePath)
         : this.baseUrl;
